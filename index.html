@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Krithik U - Data Analytics & Business Intelligence Graduate specializing in Python, Power BI, Machine Learning, and Data Visualization">
+    <title>Krithik U - Data Analytics Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --dark-navy: #1e293b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+            --text-gray: #64748b;
+            --border-color: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-navy);
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-navy);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--dark-navy);
+            transition: 0.3s;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+        }
+
+        .hero-content .subtitle {
+            font-size: 24px;
+            margin-bottom: 12px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .hero-content .location {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.85;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--dark-navy);
+            letter-spacing: -1px;
+        }
+
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--text-gray);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 50px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 40px 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
+        }
+
+        .highlight-card h3 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .skills {
+            background-color: var(--light-gray);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background-color: var(--white);
+            padding: 36px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .skill-card h3 {
+            font-size: 22px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: var(--light-gray);
+            color: var(--dark-navy);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .projects {
+            background-color: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            padding: 36px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            color: var(--dark-navy);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .project-tools {
+            font-size: 14px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .education {
+            background-color: var(--light-gray);
+        }
+
+        .education-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .education-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 6px solid var(--primary-blue);
+        }
+
+        .education-card h3 {
+            font-size: 24px;
+            color: var(--dark-navy);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .education-card .institution {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+        }
+
+        .education-card .year {
+            font-size: 15px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            background-color: var(--light-gray);
+            padding: 28px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+        }
+
+        .contact-item h4 {
+            font-size: 16px;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item a {
+            color: var(--dark-navy);
+            text-decoration: none;
+            font-size: 15px;
+            word-break: break-word;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-blue);
+        }
+
+        .contact-item p {
+            color: var(--dark-navy);
+            font-size: 15px;
+        }
+
+        .languages-card {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: var(--white);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
+        }
+
+        .languages-card h4 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .languages-card p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        footer {
+            background-color: var(--dark-navy);
+            color: var(--white);
+            text-align: center;
+            padding: 32px 24px;
+        }
+
+        footer p {
+            font-size: 15px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                gap: 0;
+                padding: 0;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 16px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content .subtitle {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .about-text {
+                font-size: 18px;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Krithik U</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="Krithik_U_Resume.pdf" download>Resume</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Krithik U</h1>
+            <p class="subtitle">Data Analytics & Business Intelligence Graduate</p>
+            <p class="location">Palakkad, Kerala</p>
+            <a href="Krithik_U_Resume.pdf" download class="btn-primary">Download Resume</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p class="about-text">Enthusiastic and detail-oriented BSc Computer Science graduate with hands-on experience in data analysis, machine learning, and business intelligence tools. Adept at problem-solving and quick learning, seeking to contribute technical and analytical skills to a forward-thinking organization.</p>
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h3>4+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>10+</h3>
+                        <p>Technical Skills</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">DAX</span>
+                        <span class="skill-tag">Microsoft Excel</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Data Visualization</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Fast Learner</span>
+                        <span class="skill-tag">Effective Communication</span>
+                        <span class="skill-tag">Decision Making</span>
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Laptop Price Prediction</h3>
+                    <p>Built a machine learning model to predict laptop prices with high accuracy, enabling better pricing strategies for retailers.</p>
+                    <p class="project-tools">Tools: Python, Pandas, Scikit-learn</p>
+                </div>
+                <div class="project-card">
+                    <h3>Car Price Analysis – Power BI</h3>
+                    <p>Interactive dashboards and insights using DAX to analyze car pricing trends and market patterns.</p>
+                    <p class="project-tools">Tools: Power BI, DAX, Excel</p>
+                </div>
+                <div class="project-card">
+                    <h3>IMDB Dataset Analysis</h3>
+                    <p>Advanced SQL-based movie data analysis to extract meaningful insights and trends from large datasets.</p>
+                    <p class="project-tools">Tools: MySQL</p>
+                </div>
+                <div class="project-card">
+                    <h3>Harvestify – Crop Prediction</h3>
+                    <p>Crop recommendation system using ML & DL to help farmers optimize crop selection and maximize yield.</p>
+                    <p class="project-tools">Tools: Python, Scikit-learn, TensorFlow</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certification</h2>
+            <div class="education-container">
+                <div class="education-card">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p class="institution">VV College of Science and Technology, Calicut University</p>
+                    <p class="year">2020 – 2023</p>
+                </div>
+                <div class="education-card">
+                    <h3>Data Analytics and Data Science</h3>
+                    <p class="institution">KGiSL Microcollege, Coimbatore</p>
+                    <p class="year">2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-container">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <a href="mailto:krithikunni1717@gmail.com">krithikunni1717@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <a href="tel:+919605325779">+91 9605325779</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>LinkedIn</h4>
+                        <a href="https://linkedin.com/in/krithik-u-a34721273" target="_blank">View Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Location</h4>
+                        <p>Palakkad, Kerala</p>
+                    </div>
+                </div>
+                <div class="languages-card">
+                    <h4>Languages</h4>
+                    <p>English, Malayalam</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Krithik U. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
